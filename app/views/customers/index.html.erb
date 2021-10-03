@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.external_id %></td>
+        <td><%= customer.name %></td>
+        <td><%= customer.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @customers %>
+<br>
+<%= link_to "Download CSV", download_customers_path(page: params[:page]) %>
